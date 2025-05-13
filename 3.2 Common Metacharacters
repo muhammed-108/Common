@@ -1,0 +1,47 @@
+Step 1 Single character.
+View the processes whose IDs start with "10".
+[root@openEuler ~]# ps -ef | grep ' 10. '
+root 10 2 0 02:03 ? 00:00:00 [rcu_tasks_trace]
+root 102 2 0 02:03 ? 00:00:00 [kswapd0]
+root 103 2 0 02:03 ? 00:00:00 [kpagecache_limi]
+root 105 2 0 02:03 ? 00:00:00 [kthrotld]
+root 106 2 0 02:03 ? 00:00:00 [acpi_thermal_pm]
+root 107 2 0 02:03 ? 00:00:00 [kmpath_rdacd]
+root 108 2 0 02:03 ? 00:00:00 [kaluad]
+root 109 2 0 02:03 ? 00:00:00 [ipv6_addrconf]
+root 1052 879 0 02:44 pts/0 00:00:00 grep --color=auto 10.
+[root@openEuler ~]#
+
+
+Step 2 The preceding character appears zero or more times.
+View the processes whose names contain zero or more hyphens (-) before "gp".
+[root@openEuler ~]# ps -ef | grep '_*gp'
+root 3 2 0 02:03 ? 00:00:00 [rcu_gp]
+root 4 2 0 02:03 ? 00:00:00 [rcu_par_gp]
+root 1141 879 0 03:11 pts/0 00:00:00 grep --color=auto _*gp
+[root@openEuler ~]#
+
+
+Step 3 The starting position of the line.
+View the lines starting with "ens" in the NIC information.
+[root@openEuler ~]# ifconfig | grep '^ens'
+ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+[root@openEuler ~]#
+
+Step 4 The ending position of the line.
+View the lines ending with "255" in the NIC information.
+[root@openEuler ~]# ifconfig | grep '255$'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
+
+
+Step 5 A group of single characters.
+View the NIC whose name contains "ens" and a number.
+[root@openEuler ~]# ifconfig | grep 'ens[0-9]'
+ens3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1500
+[root@openEuler ~]#
+
+
+
+
+
