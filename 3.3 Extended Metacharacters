@@ -1,0 +1,47 @@
+Step 1 The preceding character appears one or more times.
+View the lines that contain one or more occurrences of "192" in the NIC information.
+[root@openEuler ~]# ifconfig | grep -E '(192)+'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
+
+
+Step 2 The preceding character appears zero or one time.
+View the lines that contain zero or more occurrences of "255" after "255." in the NIC
+information.
+[root@openEuler ~]# ifconfig | grep -E '255.(255)?'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+ inet 127.0.0.1 netmask 255.0.0.0
+[root@openEuler ~]#
+
+
+Step 3 The or character.
+View the lines that contain zero or more occurrences of "255" or "0" after "255." in the
+NIC information.
+[root@openEuler ~]# ifconfig | grep -E '255.(255|0)+'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+ inet 127.0.0.1 netmask 255.0.0.0
+[root@openEuler ~]#
+
+
+Step 4 Specify the number of repetitions of preceding characters in the NIC information.
+View the lines that contain two occurrences of "255." after "255.".
+[root@openEuler ~]# ifconfig | grep -E '255.(255.){2}'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
+View the lines that contain two or more occurrences of "255." after "255.".
+[root@openEuler ~]# ifconfig | grep -E '255.(255.){2,}'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
+View the lines that contain a maximum of two occurrences of "255." after "255.".
+[root@openEuler ~]# ifconfig | grep -E '255.(255.){,2}'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+ inet 127.0.0.1 netmask 255.0.0.0
+[root@openEuler ~]#
+View the lines that contain one to two occurrences of "255." after "255.".
+[root@openEuler ~]# ifconfig | grep -E '255.(255.){1,2}'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
+
+
+
+
