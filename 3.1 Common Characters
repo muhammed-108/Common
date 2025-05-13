@@ -1,0 +1,25 @@
+Step 1 Filter by letter.
+View the IP addresses of the host.
+[root@openEuler ~]# ifconfig | grep 'inet'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+ inet6 fe80::f816:3eff:fe5d:b5cb prefixlen 64 scopeid 0x20<link>
+ inet 127.0.0.1 netmask 255.0.0.0
+ inet6 ::1 prefixlen 128 scopeid 0x10<host>
+[root@openEuler ~]#
+
+
+Step 2 Filter by digit.
+View the IP address of the host that contains 192.
+[root@openEuler ~]# ifconfig | grep '192'
+ inet 192.168.0.22 netmask 255.255.255.0 broadcast 192.168.0.255
+[root@openEuler ~]#
+
+
+Step 3 Filter by punctuation.
+View the IPv6 address of the host.
+[root@openEuler ~]# ifconfig | grep '::'
+ inet6 fe80::f816:3eff:fe5d:b5cb prefixlen 64 scopeid 0x20<link>
+ inet6 ::1 prefixlen 128 scopeid 0x10<host>
+[root@openEuler ~]#
+
+
